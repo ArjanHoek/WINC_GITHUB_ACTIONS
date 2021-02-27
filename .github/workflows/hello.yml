@@ -1,11 +1,15 @@
-name: Print Hello
+name: CI
 
-on: workflow_dispatch
+on: [push, pull_request, workflow_dispatch]
+
 jobs:
-  print-hello:
-    # Specify on which operating system we want this workflow to run
-    runs-on: ubuntu-20.04
-    # The steps that will be excuted
+  test:
+    runs-on: ubuntu-latest
     steps:
-    - name: Print
-      run: echo "Hello, world!"
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
