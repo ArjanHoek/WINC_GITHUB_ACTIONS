@@ -1,4 +1,4 @@
-const power = (x, y) => Math.pow(x, y) / 2;
+const power = (x, y) => Math.pow(x, y);
 
 module.exports = {
   power
